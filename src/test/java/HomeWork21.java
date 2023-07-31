@@ -1,6 +1,5 @@
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.testng.Assert;
 public class HomeWork21 extends BaseTest{
 
     @Test
@@ -12,5 +11,8 @@ public class HomeWork21 extends BaseTest{
         openOption();
         clickEdit();
         rename("66");
+        String newPlaylistName = "Updated playlist";
+        Assert.assertTrue(doesPlaylistExist().contains(newPlaylistName));
+
     }
 }

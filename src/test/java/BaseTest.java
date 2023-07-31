@@ -165,6 +165,12 @@ public class BaseTest {
         naming.sendKeys(Keys.RETURN);
     }
 
+    public String doesPlaylistExist() {
+        WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+        return playlistElement.getText();
+    }
+
+
 
 }
 
