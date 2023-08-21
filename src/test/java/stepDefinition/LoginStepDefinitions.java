@@ -34,8 +34,7 @@ public class LoginStepDefinitions {
     }
 
     @Given("I open Login Page")
-    public void navigateToPage(){
-        driver.get("https://qa.koel.app/");
+    public void navigateToPage(){driver.get("https://qa.koel.app/");
     }
     @When("I enter email {string}")
     public void enterEmail(String email){
@@ -53,9 +52,10 @@ public class LoginStepDefinitions {
         loginPage.clickSubmit();
     }
 
-    @Then("I am land on the Home Page and my user avatar is displayed")
+    @Then("I am logged in")
     public void verifyHomePage(){
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar"))).isDisplayed());
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.getAvatar();
     }
 
     @After

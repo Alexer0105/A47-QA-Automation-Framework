@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
 
 
     @FindBy(css = "[type = 'email']")
-    WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']")));
+    WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[type='password']")));
 
     @FindBy(css = "[type = 'password']")
     WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']")));
@@ -35,17 +35,24 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage provideEmail(String email) {
+        emailField.clear();
         emailField.sendKeys(email);
         return this;
     }
 
     public LoginPage providePassword(String password) {
+        passwordField.clear();
         passwordField.sendKeys(password);
         return this;
     }
 
     public LoginPage clickSubmit() {
         submitBtn.click();
+        return this;
+    }
+
+    public LoginPage getAvatar() {
+        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar"))).isDisplayed());
         return this;
     }
 
