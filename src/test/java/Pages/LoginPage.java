@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
     WebElement submitBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='submit']")));
 
 
-    public void loginUrl() {
+    public static void openLoginUrl() {
         String url = "https://qa.koel.app/";
         driver.get(url);
     }

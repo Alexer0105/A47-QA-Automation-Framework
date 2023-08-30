@@ -6,6 +6,12 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="CucumberRunner"/>
+            <class name="BaseTest"/>
+            <class name="LoginTests"/>
+            <class name="PlaylistTests"/>
+
+
+
         </classes>
     </test>
 </suite>
