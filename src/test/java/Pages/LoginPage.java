@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
 
 
     @FindBy(css = "[type = 'email']")
-    WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[type='password']")));
+    WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[type='email']")));
 
     @FindBy(css = "[type = 'password']")
     WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']")));

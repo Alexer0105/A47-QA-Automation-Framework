@@ -19,11 +19,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import java.net.URI;
 
 
+
 public class BaseTest {
 
     private static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     public static WebDriver driver = null;
     public static String url = "https://qa.koel.app/";
+
 
     public static WebDriver lambdaTest() throws MalformedURLException {
         String hubURL = "https://hub.lambdatest.com/wd/hub";

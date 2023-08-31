@@ -2,6 +2,8 @@ import Pages.*;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
+import static Pages.LoginPage.openLoginUrl;
+
 public class PlaylistTests extends BaseTest {
 
     @Test
@@ -9,7 +11,7 @@ public class PlaylistTests extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
         DeletePlaylistPage deletePlaylistPage = new DeletePlaylistPage(getDriver());
         String deleteMsg = "Deleted playlist";
-        loginPage.openLoginUrl();
+        openLoginUrl();
         loginPage.provideEmail("beomseo.park@testpro.io").providePassword("te$t$tudent").clickSubmit();
         deletePlaylistPage.openPlaylist();
         deletePlaylistPage.deleteItem();
@@ -23,7 +25,7 @@ public class PlaylistTests extends BaseTest {
     public void renamePlaylist () throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         RenamePlaylistPage renamePlaylistPage = new RenamePlaylistPage(getDriver());
-        loginPage.openLoginUrl();
+        openLoginUrl();
         loginPage.provideEmail("beomseo.park@testpro.io").providePassword("te$t$tudent").clickSubmit();
         renamePlaylistPage.openOption();
         renamePlaylistPage.clickEdit();
@@ -34,7 +36,7 @@ public class PlaylistTests extends BaseTest {
     public void playSongTest () throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         PlaySongPage playSongPage = new PlaySongPage(getDriver());
-        loginPage.openLoginUrl();
+        openLoginUrl();
         playSongPage.clickPlayNext();
         playSongPage.clickPlay();
 
@@ -44,7 +46,7 @@ public class PlaylistTests extends BaseTest {
     public void addSongtoPlaylistTest () throws InterruptedException{
         LoginPage loginPage = new LoginPage(getDriver());
         AddSongToPlayListPage addSongToPlayListPage = new AddSongToPlayListPage(getDriver());
-        loginPage.openLoginUrl();
+        openLoginUrl();
         addSongToPlayListPage.searchSong("pluto");
         addSongToPlayListPage.clickViewAllBtn();
         addSongToPlayListPage.selectFirstSong();
