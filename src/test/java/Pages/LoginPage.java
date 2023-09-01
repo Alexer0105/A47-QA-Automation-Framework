@@ -20,18 +20,19 @@ public class LoginPage extends BasePage {
 
 
     @FindBy(css = "[type = 'email']")
-    WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[type='email']")));
+    private WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[type='email']")));
 
     @FindBy(css = "[type = 'password']")
-    WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']")));
+    private WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']")));
 
     @FindBy(css = "button[type = 'submit']")
-    WebElement submitBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='submit']")));
+    private WebElement submitBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='submit']")));
 
 
-    public static void openLoginUrl() {
+    public LoginPage openLoginUrl() {
         String url = "https://qa.koel.app/";
         driver.get(url);
+        return this;
     }
 
     public LoginPage provideEmail(String email) {

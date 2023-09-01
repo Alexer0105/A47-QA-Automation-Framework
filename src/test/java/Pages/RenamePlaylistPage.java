@@ -12,19 +12,12 @@ public class RenamePlaylistPage extends BasePage{
         super(givenDriver);
     }
 
-    @FindBy(css ="a[href='#!/playlist/65758']" )
-    WebElement option;
-
     @FindBy (css ="#playlists > ul > li:nth-child(3) > nav > ul > li:nth-child(1)" )
-    WebElement  edit;
+    private WebElement  edit;
 
     @FindBy (css ="[name='name']")
-    WebElement  naming;
+    private WebElement  naming;
 
-    public RenamePlaylistPage openOption() {
-        option.click();
-        return this;
-    }
 
     public RenamePlaylistPage clickEdit() {
         edit.click();
@@ -36,6 +29,7 @@ public class RenamePlaylistPage extends BasePage{
         naming.sendKeys(Keys.RETURN);
         return this;
     }
+
 
     public  String doesPlaylistExist() {
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));

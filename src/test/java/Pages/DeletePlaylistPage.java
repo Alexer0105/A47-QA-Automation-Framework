@@ -7,20 +7,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class DeletePlaylistPage extends BasePage{
 
     public DeletePlaylistPage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
-    @FindBy(css ="a[href='#!/playlist/65494']" )
-    WebElement accessPlaylist;
+    @FindBy(css ="a[href='#!/playlist/69751']" )
+    private WebElement accessPlaylist;
 
     @FindBy (css =".del" )
-    WebElement  item;
+    private WebElement  item;
 
     @FindBy (css ="button.ok" )
-    WebElement  btn;
+    private WebElement  btn;
+
+
+    @FindBy(css = "div.success.show")
+    private static WebElement deleteMsg;
 
     public DeletePlaylistPage openPlaylist() {
         accessPlaylist.click();
@@ -35,9 +40,18 @@ public class DeletePlaylistPage extends BasePage{
         btn.click();
         return this;
     }
-
-    public static String getDeleteMsg() {
-        WebElement deleteMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+    public static String  getDeleteMsg() {
         return deleteMsg.getText();
+    }
+
+
+    public DeletePlaylistPage rightClickPlaylist(){
+        contextClick(accessPlaylist);
+        return this;
+    }
+
+    public DeletePlaylistPage doubleClickPlaylist (){
+        doubleClick(accessPlaylist);
+        return this;
     }
 }

@@ -1,9 +1,9 @@
 import Pages.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-
-import static Pages.LoginPage.openLoginUrl;
-
 public class PlaylistTests extends BaseTest {
 
     @Test
@@ -11,13 +11,15 @@ public class PlaylistTests extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
         DeletePlaylistPage deletePlaylistPage = new DeletePlaylistPage(getDriver());
         String deleteMsg = "Deleted playlist";
-        openLoginUrl();
         loginPage.provideEmail("beomseo.park@testpro.io").providePassword("te$t$tudent").clickSubmit();
-        deletePlaylistPage.openPlaylist();
+        deletePlaylistPage.rightClickPlaylist();
         deletePlaylistPage.deleteItem();
         deletePlaylistPage.deleteBtn();
         Assert.assertTrue(DeletePlaylistPage.getDeleteMsg().contains(deleteMsg));
+
     }
+
+
 
 
 
@@ -25,9 +27,9 @@ public class PlaylistTests extends BaseTest {
     public void renamePlaylist () throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         RenamePlaylistPage renamePlaylistPage = new RenamePlaylistPage(getDriver());
-        openLoginUrl();
+        DeletePlaylistPage deletePlaylistPage = new DeletePlaylistPage(getDriver());
         loginPage.provideEmail("beomseo.park@testpro.io").providePassword("te$t$tudent").clickSubmit();
-        renamePlaylistPage.openOption();
+        deletePlaylistPage.rightClickPlaylist();
         renamePlaylistPage.clickEdit();
         renamePlaylistPage.rename("66");
     }
@@ -36,17 +38,17 @@ public class PlaylistTests extends BaseTest {
     public void playSongTest () throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         PlaySongPage playSongPage = new PlaySongPage(getDriver());
-        openLoginUrl();
+        loginPage.provideEmail("beomseo.park@testpro.io").providePassword("te$t$tudent").clickSubmit();
         playSongPage.clickPlayNext();
         playSongPage.clickPlay();
 
     }
 
     @Test
-    public void addSongtoPlaylistTest () throws InterruptedException{
+    public void addSongToPlaylistTest () throws InterruptedException{
         LoginPage loginPage = new LoginPage(getDriver());
         AddSongToPlayListPage addSongToPlayListPage = new AddSongToPlayListPage(getDriver());
-        openLoginUrl();
+        loginPage.provideEmail("beomseo.park@testpro.io").providePassword("te$t$tudent").clickSubmit();
         addSongToPlayListPage.searchSong("pluto");
         addSongToPlayListPage.clickViewAllBtn();
         addSongToPlayListPage.selectFirstSong();

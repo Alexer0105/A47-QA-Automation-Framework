@@ -11,10 +11,10 @@ public class PlaySongPage extends BasePage {
     }
 
     @FindBy(css ="[title='Play next song']" )
-    WebElement playNextBtn;
+    private WebElement playNextBtn;
 
     @FindBy (css ="span.play" )
-    WebElement  playBtn;
+    private WebElement  playBtn;
 
     public PlaySongPage clickPlayNext() {
         playNextBtn.click();

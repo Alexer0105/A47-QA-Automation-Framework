@@ -27,6 +27,7 @@ public class BaseTest {
     public static String url = "https://qa.koel.app/";
 
 
+
     public static WebDriver lambdaTest() throws MalformedURLException {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
         ChromeOptions browserOptions = new ChromeOptions();
@@ -70,7 +71,7 @@ public class BaseTest {
         if (browser == null) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions optionsChrome = new ChromeOptions();
-            optionsChrome.addArguments("--disable-notifications", "--remote-allow-origins=*", "--incognito", "--start-maximized");
+            optionsChrome.addArguments("--disable-notifications", "--remote-allow-origins=*", "--start-maximized");
             optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
             return driver = new ChromeDriver(optionsChrome);
         }

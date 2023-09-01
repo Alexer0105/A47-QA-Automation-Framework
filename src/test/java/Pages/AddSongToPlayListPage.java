@@ -10,19 +10,19 @@ public class AddSongToPlayListPage extends BasePage{
         super(givenDriver);
     }
     @FindBy(css ="div#searchForm input[type=search]" )
-    WebElement searchField;
+    private WebElement searchField;
 
     @FindBy (css ="#searchExcerptsWrapper > div > div > section.songs > h1 > button" )
-    WebElement  viewAllSearchResult;
+    private WebElement  viewAllSearchResult;
 
     @FindBy (css ="#songResultsWrapper > div > div > div.item-container > table > tr" )
-    WebElement  firstSongResult;
+    private WebElement  firstSongResult;
 
     @FindBy (css ="#songResultsWrapper > header > div.song-list-controls > span > button.btn-add-to" )
-    WebElement  addToBtn;
+    private WebElement  addToBtn;
 
     @FindBy (xpath ="//*[@id='songResultsWrapper']/header/div[3]/div/section[1]/ul/li[5]" )
-    WebElement  playlist;
+    private WebElement  playlist;
 
 
     public AddSongToPlayListPage searchSong(String songTitleKeyword) {
